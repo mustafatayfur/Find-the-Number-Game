@@ -1,0 +1,14 @@
+* {
+    margin: 0;
+    padding: 0;
+    background-image: url(./images/road.jpg);
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+h1 {
+    font-size: 3rem;
+    color: rgb(255, 136, 0);
+    font-weight: 800;
+}
+
+#form {}
