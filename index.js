@@ -1,25 +1,23 @@
 let guessNumber = document.querySelector("#form_guess");
 let guessButton = document.querySelector("#form_button");
 let result = document.querySelector("#result");
+let randomNumber = Math.floor(Math.random() * 100 + 1);
+let guessCount = 0;
 
-guessButton.addEventListener("click", function {
+console.log(randomNumber);
 
-    let randomNumber = Math.floor(Math.random() * 10 + 1);
-    let guessCount = 0;
-    guessNumber = Number(guessNumber.value)
+guessButton.addEventListener("click", checkNumber);
 
-    if (guessNumber < randomNumber) {
-        guessCount++;
+function checkNumber() {
+    let numb = guessNumber.value;
+    guessCount++;
+    if (parseInt(numb) === randomNumber) {
+        result.innerText = `CONGRATULATIONS!!!YOU GUESSED THE NUMBER RIGHT IN ${guessCount}`;
+    } else if (numb < randomNumber) {
         result.innerText = "SORRY!! TRY A GREATER NUMBER";
-
-    } else
-    if (guessNumber > randomNumber) {
-        guessCount++;
+    } else if (parseInt(numb) > randomNumber) {
         result.innerText = "SORRY!! TRY A SMALLER NUMBER";
-
-    } else if (guessNumber == randomNumber) {
-        result.innerText = "CONGRATULATIONS!!! YOU GUESSED THE NUMBER RIGHT IN " +
-            guessCount + " GUESS ";
-
+    } else if (parseInt(numb) < 0 || parseInt(numb) > 100) {
+        result.innerText = "PLEASE WRİTE FROM 1 TO 100"
     }
-})
+};
