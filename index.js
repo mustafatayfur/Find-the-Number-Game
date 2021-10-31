@@ -21,7 +21,7 @@ function checkNumber() {
         tryButton.innerText = 'Try Again';
         result1.innerText = '';
         displayForm.style.display = "none";
-        infoP.innerText = ''
+        infoP.innerText = '';
     }else if (parseInt(numb) < 1 || parseInt(numb) > 100) {
         result1.innerText = "PLEASE WRİTE FROM 1 TO 100";
         guessNumber.value = '';
@@ -31,8 +31,11 @@ function checkNumber() {
     } else if (parseInt(numb) > randomNumber) {
         result1.innerText = "SORRY!! TRY A SMALLER NUMBER";
         guessNumber.value = '';
+    }else if (isNaN(numb)){
+        result1.innerText = "PLEASE ENTER A VALİD VALUE!";
     }
 };
+
 tryButton.addEventListener("click",() =>{
     result2.innerText = '';
     guessNumber.value = '';
@@ -43,3 +46,10 @@ tryButton.addEventListener("click",() =>{
     infoP.innerText = 'We have selected a random number between 1 - 100. See if you can guess it.'
     
 });
+
+window.addEventListener("keyup", function(event) {
+    if (event.code == "Enter" || event.code == "NumpadEnter") {
+        event.preventDefault;
+        checkNumber(event.code);
+    }
+  });
