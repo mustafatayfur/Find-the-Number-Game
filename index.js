@@ -13,7 +13,6 @@ console.log(randomNumber);
 guessButton.addEventListener("click", checkNumber);
 
 function checkNumber() {
-    let randomNumber = Math.floor(Math.random() * 100 + 1);
     let numb = guessNumber.value;
     guessCount++;
     if (parseInt(numb) === randomNumber) {
