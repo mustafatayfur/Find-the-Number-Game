@@ -13,6 +13,7 @@ console.log(randomNumber);
 guessButton.addEventListener("click", checkNumber);
 
 function checkNumber() {
+    let randomNumber = Math.floor(Math.random() * 100 + 1);
     let numb = guessNumber.value;
     guessCount++;
     if (parseInt(numb) === randomNumber) {
@@ -44,7 +45,7 @@ tryButton.addEventListener("click",() =>{
     guessCount = 0;
     displayForm.style.display = "contents";
     infoP.innerText = 'We have selected a random number between 1 - 100. See if you can guess it.'
-    
+    location.reload();
 });
 
 window.addEventListener("keyup", function(event) {
